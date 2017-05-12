@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--define main -->
+<html ng-app="interceptorModule">
+
+<head>
+  <title>Interceptor Example</title>
+  <!--cdn link for angularjs framework-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+  <script>
+    var interceptorModule = angular.module("interceptorModule", []);
+    var interceptorFunctions = function() {
+      return {
+        request: function(configObject) {
+          configObject.url = "productInfo.json";
+          return configObject;
+        },
+        requestError: function(configObject) {
+          console.log(configObject);
+          return configObject;
+        },
+        response: function(responseObject) {
+          console.log(responseObject);
+          return responseObject;
+        },
+        responseError: function(responseObject) {
+          console.log(responseObject);
+          return responseObject;
+        }
+      }
+    };
+
+    /*configure config function*/
+    interceptorModule.config(function($httpProvider) {
+      $httpProvider.interceptors.push(interceptorFunctions);
+    });
+    /*here we define controller*/
+    interceptorModule.controller("CtrlInterceptor", function($scope, $http) {
+      $scope.loadItems = function() {
+        $http.get("no_existence_of_file.json").success(function(responseObject) {
+          $scope.products = responseObject;
+        });
+      }
+    });
+  </script>
+</head>
+
+<body ng-controller="CtrlInterceptor">
+  <table>
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Type</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="productInfo in products">
+        <td>{{productInfo.productName}}</td>
+        <td>{{productInfo.type}}</td>
+        <td>{{productInfo.pricePerPiece | currency}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    <button ng-click="loadItems()">Load Data</button>
+  </p>
+  </div>
+  </div>
+</body>
+
+</html>

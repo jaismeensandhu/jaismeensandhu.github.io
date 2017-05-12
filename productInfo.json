@@ -1,0 +1,13 @@
+[{
+  "productName": "Apples",
+  "type": "Fruit",
+  "pricePerPiece": 1.20
+}, {
+  "productName": "Salmon",
+  "type": "Fish",
+  "pricePerPiece": 17.93
+}, {
+  "productName": "Trout",
+  "type": "Fish",
+  "pricePerPiece": 12.93
+}]

@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+	<head>
+		<title>Jaismeen Sandhu Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+		 <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+		 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+		<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	    <script src="assets/js/angularjs.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+     
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><a href="../index.html"><img src="images/avatar.jpg" alt="" /></a></span>
+					<h1 id="logo"><a href="../index.html">Jaismeen Sandhu</a></h1>
+					<p>A Developer & An Innovator<br />
+					passionate to learn new technologies</p>
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="#aboutme" class="active">About</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#experience">Experience</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#contactme">Contact</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/jaismeensandhu/" target="_blank" class="icon fa-linkedin"><span class="label">linkedin</span></a></li>
+						<li><a href="https://github.com/proapptivedevs" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#contactme" class="icon fa-phone-square"><span class="label">Contact</span></a></li>
+						<li><a href="#contactme" class="icon fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- aboutme -->
+							<section id="aboutme">
+								<div class="container">
+									<header class="major">
+										<h3 style="color:#4acaa8">Hello!</h3>
+										<p style="color:#4acaa8">I'm a Canada based Full Stack Developer with 5+ years of experience in IT</p>
+									</header>
+									<p><br>I have completed my post-graduate Studies in <b>Mobile Application Development from Centennial College</b>, Toronto.<br><br>
+									Currently I am working with <b>Mentor Tech Source Inc. - Canada</b>, as a Full Stack Developer. Where I :
+									<ol type="1"> 
+										<li>Design and Develop responsive Websites with PHP, HTML5, CSS, Bootstrap, jQuery, MYSQL</li>
+										<li>Build solutions to:<br>
+										
+											- Reach to the potential job seekers for the IT Roles<br>
+											- Decrease the hassle to evaluate hundreds of applicants by designing easy to use backend portals with specific roles
+										</li>
+										<li><b>Integration of websites with</b> various Social Media platforms and Job Portals such as Facebook, Indeed, LinkedIn with <b>respective PHP APIs</b></li>
+									</ol>
+											<!--<br>I worked in <b>Tata Consultancy Services</b> as a Developer, and developed solutions for the AI and IT Automation with Enterprise level tools such as IGNIO, TCS Orchestrator, Service-Now and Microsoft SCOrch.
+											<br><br>	- Permormed UAT and deployed code in production environment to perform end to end automation
+											<br> 	- Lead and trained a 6-member team
+											<br>   - Automated Web Point of Sale (POS) tool with Selenium in Java, Tomcat to create and manage bulk users automatically-->
+
+											</p>
+								</div>
+							</section>
+
+						<div ng-controller="namesCtrl">
+						<!-- skills -->
+							<section id="skills">
+								<div class="container">
+									<h3>Skill Set</h3>
+									<p>Worked in many technologies accross various platforms, with the FOCUS ON:
+										<br><b>Innovation & Best Results. </b></p>
+									<ul class="feature-icons">
+										<li ng-click="filterSkills('Logo Designing')" class="fa-cubes"><a style="cursor:pointer" href="#projects">Logo Designing</a></li>
+										<li ng-click="filterSkills('UX-UI Design')" class="fa-book"><a style="cursor:pointer" href="#projects">UX-UI Design</a></li>
+										<li ng-click="filterSkills('Web Development')" class="fa-users"><a style="cursor:pointer" href="#projects">Web Development</a></li>
+										<li ng-click="filterSkills('Hybrid & iOS Apps Development')" class="fa-code"><a style="cursor:pointer" href="#projects">Hybrid & iOS Apps Development</a></li>
+										<li ng-click="filterSkills('Automation Testing')" class="fa-coffee"><a style="cursor:pointer" href="#projects">Automation Testing</a></li>
+										<li ng-click="filterSkills('Integration')" class="fa-bolt"><a style="cursor:pointer" href="#projects">Integration</a></li>
+									</ul>
+								</div>
+							</section>
+
+						<!-- projects -->
+							<section id="projects">
+								<div class="container">
+									<h3>My Projects</h3>
+									<p>I like to enhance my knowledge and explore the possibilities of max benefit to the Company/Client through my work. </p>
+									<div class="features">
+						
+									<p style="display:block"><center><input type="button" class="special" value="Display all Projects"  ng-click="filterSkills('')"><br> or </center><input type="text" ng-model="test.skill" placeholder="Skills Search - Ex. Integration, Development, Designing, Automation"></p>
+										<ul style="list-style-type:none">
+										<li ng-repeat="item in items | filter:test">
+											<article>
+												<a href="#" class="image" ng-click="open(item)"><img src="images/{{item.image}}.jpg" alt=""/></a>
+												<div class="inner">
+													<h4>{{item.name}}</h4>
+													<p>{{item.description}}</p>
+												</div>
+											</article>
+										</li>
+										</ul>								
+									</div>
+								</div>
+							</section>
+						</div>
+						<div ng-controller="namesCtrl">
+							<script type="text/ng-template" id="myModalContent.html">
+								<div class="modal-header">
+									<h3 style="color:#4acaa8" class="modal-title">{{selected.item.name}}</h3>
+								</div>
+								<div class="modal-body">
+										<img class="image" width="100%" src="images/{{selected.item.image}}.jpg" alt="{{selected.item.image}}.jpg"/>
+										<b>Skills: </b>{{selected.item.skill}}<br>
+										<b>Description:</b> {{selected.item.description}}
+								</div>
+								<div class="modal-footer">
+									<button class="btn btn-warning" ng-click="cancel()">Close</button>
+								</div>
+							</script>
+						</div>
+						<!-- contactme -->
+							<section id="contactme">
+								<div class="container">
+									<h3>Mail Me</h3>
+									<p>If you have cool opportunies for me or Want to hire me as a freelancer.<br> You can Reach Me anytime.</p>
+									<form method="post" action="#">
+										<div class="row uniform">
+											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
+										</div>
+										<div class="row uniform">
+											<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+										</div>
+										<div class="row uniform">
+											<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+										</div>
+										<div class="row uniform">
+											<div class="12u">
+												<ul class="actions">
+													<li><input type="submit" class="special" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+									
+									<h3>Contact Me</h3>
+									<p>
+										<ul class="feature-icons">
+											<li class="fa-envelope">
+												<a href="mailto:jaismeen.sandhu@yahoo.com" style="text-decoration:none;"><b>jaismeen.sandhu@yahoo.com</b></a>
+											</li>
+											<li class="fa-download">
+												<a href="downloads/JaismeenSandhuResume.docx" style="text-decoration:none;"><b> DOWNLOAD my RESUME </b></a>
+											</li>
+										</ul>
+									</p>
+
+								</div>
+							</section>
+
+						<!-- experience -->
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li> Jaismeen Sandhu &copy; 2017. All rights reserved.</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
